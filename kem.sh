@@ -1,2 +1,2 @@
 #!/bin/bash
-exec python3 code/main.py $*
+python3 code/main.py 

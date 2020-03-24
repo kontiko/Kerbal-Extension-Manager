@@ -1,4 +1,3 @@
-import sys
 import os
 import shutil
 import json
@@ -59,7 +58,7 @@ def remove(modname):
 def list():
     if update_config():
         return
-    for mod in [f.path for f in os.scandir(config["ksppath"]+"/kem") if f.is_dir()]:
+    for mod in [f.path for f in os.scandir(config["ksppath"]+"kem") if f.is_dir()]:
         print(mod.split("/")[-1])
 def install(modname):
     if update_config():
@@ -118,30 +117,4 @@ def update():
         if os.path.isdir(config["ksppath"]+"kem/"+mod):
             install(mod)
             file.write(mod+"\n")
-    file.close()
-if len(sys.argv)==1 or sys.argv[1]=="help":
-    help()
-elif sys.argv[1]=="add":
-    add(sys.argv[2:])
-elif sys.argv[1]=="remove":
-    if len(sys.argv)==3:
-        remove(sys.argv[2])
-    else:
-        print ("Wrong argument number. Remove has <Name of Mod> as argument")
-elif sys.argv[1]=="list":
-    list()
-elif sys.argv[1]=="installed":
-    installed()
-elif sys.argv[1]=="install":
-    if len(sys.argv)==3:
-        install(sys.argv[2])
-    else:
-        print ("Wrong argument number. Install has <Name of Mod> as argument")
-elif sys.argv[1]=="uninstall":
-    if len(sys.argv)==3:
-        uninstall(sys.argv[2])
-    else:
-        print ("Wrong argument number. Install has <Name of Mod> as argument")
-else:
-    print("Unknown command. try <kme help>")
-
+    file.close() 
