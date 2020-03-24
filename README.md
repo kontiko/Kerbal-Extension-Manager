@@ -4,7 +4,7 @@ Kem is a Python 3 based Programm to manage your Mods
 you can add mods and remove them and install and uninstall them.
 
 when you uninstall a mod it will only remove files which are only dependent for this mod.
-so you can easily uninstall mods without watching out for other dependencies.
+so you can easily uninstall mods without watching out for dependencies of other mods.
 
 https://github.com/kontiko/Kerbal-Extension-Manager
 
