@@ -66,7 +66,7 @@ def remove(modname):
 def list():
     if update_config():
         return
-    os.makedirs(config["ksppath"]+"kem/")
+    os.makedirs(config["ksppath"]+"kem/",exist_ok=True)
     for mod in [f.path for f in os.scandir(config["ksppath"]+"kem") if f.is_dir()]:
         print(mod.split("/")[-1])
         
