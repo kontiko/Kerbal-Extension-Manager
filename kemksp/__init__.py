@@ -1,7 +1,20 @@
 import os
 import shutil
 import json
+import platform
+import subprocess
+
 config = {}
+import platform
+import subprocess
+
+def open_file(path):
+    if platform.system() == "Windows":
+        os.startfile(path)
+    elif platform.system() == "Darwin":
+        subprocess.Popen(["open", path])
+    else:
+        subprocess.Popen(["xdg-open", path])
 def is_modinstalled(modname):
     if update_config():
         return
@@ -48,7 +61,8 @@ def add(data):
         else:
             shutil.rmtree(config["ksppath"]+"kem/"+modname+"/")
             print("File/directory '"+filepath+"' not exist end process is aborted")
-
+    if len(filepaths)==0:
+        open_file(config["ksppath"]+"kem/"+modname+"/")
 
 
 def remove(modname):
