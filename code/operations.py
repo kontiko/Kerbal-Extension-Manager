@@ -26,6 +26,8 @@ def update_config():
         print("can't open Config file")
         return True
 
+
+
 def add(data):
     if update_config():
         return
@@ -46,6 +48,8 @@ def add(data):
             shutil.rmtree(config["ksppath"]+"kem/"+modname+"/")
             print("File/directory '"+filepath+"' not exist end process is aborted")
 
+
+
 def remove(modname):
     if update_config():
         return
@@ -55,26 +59,42 @@ def remove(modname):
         print("Mod is not Available")
     update()
 
+
+
+
 def list():
     if update_config():
         return
     for mod in [f.path for f in os.scandir(config["ksppath"]+"kem") if f.is_dir()]:
         print(mod.split("/")[-1])
+        
+        
+
 def install(modname):
     if update_config():
         return
-    if not (config["ksppath"]+"/kem/"+modname in [f.path for f in os.scandir(config["ksppath"]+"/kem") if f.is_dir()]):
+    if not (config["ksppath"]+"kem/"+modname in [f.path for f in os.scandir(config["ksppath"]+"kem") if f.is_dir()]):
         print("mod not avaialable")
         return
     if is_modinstalled(modname):
         print("Mod is allready installed")
         return
-    installlist=open(config["ksppath"]+"/kem/installed.txt","a")
+    installlist=open(config["ksppath"]+"kem/installed.txt","a")
     installlist.write(modname+"\n")
     installlist.close()
-    shutil.copytree(config["ksppath"]+"/kem/"+modname,config["ksppath"]+"/GameData/",dirs_exist_ok=True)
+    shutil.copytree(config["ksppath"]+"kem/"+modname,config["ksppath"]+"/GameData/",dirs_exist_ok=True)
+    
+    
+
 def help():
-    print("help")
+    print("""helppage
+add <modname> <file1> <file2> ... - adds mod with these files
+remove <modname> - removes mod
+install <modname>
+uninstall <modname>
+list - list all added mods
+installed - list all installed mods
+""")
 def uninstall(modname):
     if update_config():
         return
