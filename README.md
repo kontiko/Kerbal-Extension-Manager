@@ -1,4 +1,4 @@
-<h1>KEM<h1>
+<h1>KEM</h1>
 
 Kem is a Python 3 based Programm to manage your Mods
 you can add mods and remove them and install and uninstall them.
