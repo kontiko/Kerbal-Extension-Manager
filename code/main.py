@@ -119,9 +119,7 @@ def update():
             install(mod)
             file.write(mod+"\n")
     file.close()
-    
-    
-if sys.argv[1]=="help":
+if len(sys.argv)==1 or sys.argv[1]=="help":
     help()
 elif sys.argv[1]=="add":
     add(sys.argv[2:])
