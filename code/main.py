@@ -67,6 +67,9 @@ def install(modname):
     if not (config["ksppath"]+"/kem/"+modname in [f.path for f in os.scandir(config["ksppath"]+"/kem") if f.is_dir()]):
         print("mod not avaialable")
         return
+    if is_modinstalled(modname):
+        print("Mod is allready installed")
+        return
     installlist=open(config["ksppath"]+"/kem/installed.txt","a")
     installlist.write(modname+"\n")
     installlist.close()
@@ -90,10 +93,16 @@ def uninstall(modname):
     file.close()
     
     update()
-    
+def installed():
+    if update_config():
+        return
+    file=open(config["ksppath"]+"kem/installed.txt","r")
+    list=[i.replace("\n","") for i in file.readlines()]
+    file.close()
+    for mod in list:
+        print(mod)
 def update():
     dirlist=os.listdir(config["ksppath"]+"/GameData/")
-    print(dirlist)
     dirlist.remove("Squad")
     dirlist.remove("SquadExpansion")
     for fdir in dirlist:
@@ -123,6 +132,8 @@ elif sys.argv[1]=="remove":
         print ("Wrong argument number. Remove has <Name of Mod> as argument")
 elif sys.argv[1]=="list":
     list()
+elif sys.argv[1]=="installed":
+    installed()
 elif sys.argv[1]=="install":
     if len(sys.argv)==3:
         install(sys.argv[2])
