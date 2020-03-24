@@ -1,0 +1,5 @@
+# Ignore binary exports
+build/**
+dist/**
+kemksp/**
+kemksp.egg-info/**

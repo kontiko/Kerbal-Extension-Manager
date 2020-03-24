@@ -5,14 +5,15 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="kemksp", # Replace with your own username
-    version="0.0.1",
+    version="0.1.5",
     author="Kontiko",
     author_email="kontiko.fb@gmail.com",
     description="A package to manage your KSP Addons",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/kontiko/Kerbal-Extension-Manager",
-    packages= setuptools.find_packages(),
+    packages= ["kemksp"],
+    package_data={"kemksp":["config.json"]},
     entry_points = {
         'console_scripts': [
             'kem = kemksp.kemterminal:main'

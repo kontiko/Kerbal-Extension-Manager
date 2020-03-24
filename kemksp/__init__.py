@@ -75,8 +75,19 @@ def remove(modname):
     update()
 
 
-
-
+def new_ksppath(newpath):
+    if update_config():
+        return
+    config["ksppath"]=newpath
+    print(config["ksppath"])
+    print(os.path.dirname(__file__))
+    with open(os.path.dirname(__file__)+'/config.json', 'w') as outfile:
+        json.dump(config,outfile)
+    
+def ksppath():
+    if update_config():
+        return
+    print(config["ksppath"])
 def list():
     if update_config():
         return

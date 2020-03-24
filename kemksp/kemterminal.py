@@ -8,6 +8,15 @@ def main():
             print("Not enough arguments")
             return
         cmd.add(sys.argv[2:])
+    elif sys.argv[1]=="config":
+        if len(sys.argv)==1:
+            print("Not enough arguments")
+            return
+        if sys.argv[2]=="-p"or sys.argv[2]=="--ksppath":
+            if len(sys.argv)==3:
+                cmd.ksppath()
+            else:
+                cmd.new_ksppath(sys.argv[3])
     elif sys.argv[1]=="remove":
         if len(sys.argv)==3:
             cmd.remove(sys.argv[2])
