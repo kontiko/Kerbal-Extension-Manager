@@ -9,8 +9,8 @@ so you can easily uninstall mods without watching out for dependencies of other 
 https://github.com/kontiko/Kerbal-Extension-Manager
 
 Step by step tutorial:
-1.  a) use " add \<modname> \<file1> \<file2>" with all files which are needed for this mod as argument*
-    b) use " add \<modname>" without an argument to open the folder and drag all files in there*
+1.  a) use "kme add \<modname> \<file1> \<file2>" with all files which are needed for this mod as argument*
+    b) use "kme add \<modname>" without an argument to open the folder and drag all files in there*
     *if the mod depends on another mod put it also into there
 2. use "kme install \<modname>" to install it
 
